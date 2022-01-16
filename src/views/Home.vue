@@ -1,11 +1,43 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <p> {{ flowers }}</p>
+    <div class="container">
+        <h1>{{ message }}</h1>
+      <div class="flex-container">
+        <div v-for="flower in flowers" class="card" style="width: 18rem;">
+        <img class="card-img-top" v-bind:src="flower.image" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title"> {{ flower.name }}</h5>
+      </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"> Family: {{ flower.family }}</li>
+          <li class="list-group-item"> Predominant Color: {{ flower.color }}</li>
+        </ul>
+      </div>
+
+      </div>
+      
+    </div>
   </div>
 </template>
 
-<style></style>
+<style>
+img {
+  max-width: 180px;
+  max-height: 100px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-container .card {
+}
+
+h1 {
+  padding-bottom: 45px;
+}
+</style>
 
 <script>
 import axios from "axios";
